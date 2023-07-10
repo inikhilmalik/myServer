@@ -22,6 +22,17 @@ dataRouter.post("/create",async(req,res)=>{
     }
 })
 
+dataRouter.patch("/update/:id",async(req,res)=>{
+    const {id}=req.params;
+    // console.log(id)
+    try{
+        await dataModal.findByIdAndUpdate({_id:id},req.body);
+        res.send("data is updated")
+    }catch(err){
+        res.send({"err":err.message})
+    }
+})
+
 dataRouter.post("/updateData",async(req,res)=>{
     // console.log(req.body)
     try{
