@@ -23,7 +23,7 @@ dataRouter.post("/create",async(req,res)=>{
 })
 
 dataRouter.post("/updateData",async(req,res)=>{
-    console.log(req.body)
+    // console.log(req.body)
     try{
         await dataModal.deleteMany({})
         await dataModal.insertMany(req.body);
