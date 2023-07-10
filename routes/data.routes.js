@@ -22,4 +22,15 @@ dataRouter.post("/create",async(req,res)=>{
     }
 })
 
+dataRouter.post("/updateData",async(req,res)=>{
+    console.log(req.body)
+    try{
+        await dataModal.deleteMany({})
+        await dataModal.insertMany(req.body);
+        res.send("updation")
+    }catch(err){
+        res.send({"err":err.message})
+    }
+})
+
 module.exports={dataRouter}
