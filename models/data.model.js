@@ -11,7 +11,8 @@ const dataSchema=mongoose.Schema({
         dependOn: Number,
         precurserTask:String,
         status: String,
-        taskOwner: String
+        taskOwner: String,
+        images:[{pic:String,action:Boolean}]
 },{
     versionKey:false
 })
