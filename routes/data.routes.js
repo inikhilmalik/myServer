@@ -58,21 +58,21 @@ const storage = multer.diskStorage({
   const upload = multer({ storage: storage });
 
 
-dataRouter.patch("/updateImages/:id",upload.array('image', 10),async(req,res)=>{
-    const {id}=req.params;
+// dataRouter.patch("/updateImages/:id",upload.array('image', 10),async(req,res)=>{
+//     const {id}=req.params;
   
-    const images = req.files.map((file) => ({
-        pic: file.path,
-        action:false,
-      }));
-    //   console.log(images)
-    try{
-        await dataModal.findByIdAndUpdate({_id:id},{images})
-        res.send("image is added")
-    }
-    catch(err){
-        res.send({"err":err.message})
-    }
-})
+//     const images = req.files.map((file) => ({
+//         pic: file.path,
+//         action:false,
+//       }));
+//     //   console.log(images)
+//     try{
+//         await dataModal.findByIdAndUpdate({_id:id},{images})
+//         res.send("image is added")
+//     }
+//     catch(err){
+//         res.send({"err":err.message})
+//     }
+// })
 
 module.exports={dataRouter}
