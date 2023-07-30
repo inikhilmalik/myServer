@@ -15,6 +15,9 @@ app.get("/",(req,res)=>{
 
 app.use("/data",dataRouter);
 
+app.use("/uploads",express.static("uploads"))
+
+
 app.listen(port,async()=>{
     try{
         await connection;
