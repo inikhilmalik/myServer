@@ -60,13 +60,12 @@ const storage = multer.diskStorage({
 
 dataRouter.patch("/updateImages/:id",upload.array('image', 10),async(req,res)=>{
     const {id}=req.params;
-    console.log(id)
   
     const images = req.files.map((file) => ({
         pic: file.path,
         action:false,
       }));
-      console.log(images)
+    //   console.log(images)
     try{
         await dataModal.findByIdAndUpdate({_id:id},{images})
         res.send("image is added")
