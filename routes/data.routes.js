@@ -58,7 +58,6 @@ const storage = multer.diskStorage({
   const upload = multer({ storage: storage });
 
 
-
 dataRouter.patch("/updateImages/:id",upload.array('image', 10),async(req,res)=>{
     const {id}=req.params;
   
